@@ -1,0 +1,14 @@
+{% extends 'students/base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h3>Welcome to the Student Course Management System</h3>
+
+{% if user.is_authenticated %}
+    <p><a href="{% url 'course_list' %}" class="btn btn-primary">Browse Courses</a></p>
+    <p><a href="{% url 'file_list' %}" class="btn btn-secondary">My Files</a></p>
+    <p><a href="{% url 'upload' %}" class="btn btn-success">Upload New File</a></p>
+{% else %}
+    <p>Please <a href="{% url 'login' %}">login</a> or <a href="{% url 'register' %}">register</a> to continue.</p>
+{% endif %}
+{% endblock %}

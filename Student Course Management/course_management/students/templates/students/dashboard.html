@@ -1,0 +1,24 @@
+{% extends 'students/base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h3>Dashboard</h3>
+
+<h5>Enrolled Courses</h5>
+<ul>
+    {% for enrollment in enrollments %}
+        <li>{{ enrollment.course.name }}</li>
+    {% empty %}
+        <li>No courses enrolled yet.</li>
+    {% endfor %}
+</ul>
+
+<h5 class="mt-4">Recent Uploads</h5>
+<ul>
+    {% for file in recent_files %}
+        <li>{{ file.file.name }} ({{ file.course.name }})</li>
+    {% empty %}
+        <li>No files uploaded yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
